@@ -73,3 +73,24 @@ Bonne pratique en production : une faute de frappe ou un champ inattendu est rej
 
 
 # Partie 2: Ingestion avec Python
+
+ # Exo 2.2
+Après avoir lancé python ingest.py :
+**le nombre de documents a-t-il doublé ? 
+ Non, il reste à 5 000.
+
+**Pourquoi fixer _id avec le champ id ? 
+Le même _id désigne le même document : le renvoyer écrase l'ancien. On peut donc relancer l'ingestion à volonté.
+Avec des identifiants générés par Elasticsearch ? 
+
+**Que se passerait-il avec des identifiants générés par Elasticsearch ?
+Chaque relance créerait 5 000 nouveaux documents : 10 000 après la deuxième, 15 000 après la troisième.
+
+ # Exo 2.3
+**le lot entier est-il rejeté ou seulement ce document ? 
+Seulement ce document. Les 5 000 autres sont acceptés.
+
+**Quel est l'intérêt de raise_on_error=False pour un pipeline ? 
+le script continue et liste les refus au lieu de s'arrêter à la première erreur.
+
+**Régénérez ensuite le fichier propre avec python data/generate_offres.py.

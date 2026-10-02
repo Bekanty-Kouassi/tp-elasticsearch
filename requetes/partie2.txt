@@ -1,2 +1,13 @@
-# Ingestion Python
+# Ingestion avec Python
+ # Exercice 1.1: script python dans le fichier Ingestion
+python ingest.py --reset
 
+ # Exercice 2.2
+ python ingest.py
+
+ # Exercice 2.3
+
+ # Exercice 2.4
+GET _cat/indices/offres?v
+GET offres/_count
+GET offres/_doc/OFF-00002
